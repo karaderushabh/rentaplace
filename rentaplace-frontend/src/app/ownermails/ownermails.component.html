@@ -1,0 +1,20 @@
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mail of ownercheckmailinbox; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ mail.useremail }}</td>
+        <td>{{ mail.owneremail }}</td>
+        <td>{{ mail.message }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

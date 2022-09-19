@@ -1,0 +1,24 @@
+<div>
+  <br />
+  <div class="row">
+    <div class="col-sm-6" *ngFor="let home of ownerproperty">
+      <div class="card">
+        <img src="assets/randomhome.jpg" width="350px" alt="" />
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ home.propertytype }} at {{ home.address }}
+          </h5>
+          <p class="card-text">
+            Features: {{ home.features }} <br />
+            Rent: {{ home.rentpricepermonth | currency: "₹" }} <br />
+          </p>
+          <a class="btn btn-danger" (click)="deleteprop(home)"
+            >Delete Property</a
+          >
+          <p *ngIf="home.isreserved == 1">This Property is reserved</p>
+          &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

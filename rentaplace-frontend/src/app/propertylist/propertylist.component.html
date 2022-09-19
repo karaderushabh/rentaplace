@@ -1,0 +1,48 @@
+<div>
+  <div id="search">
+    <input
+      type="text"
+      placeholder="Enter Keyword for filter result"
+      [(ngModel)]="searchedKeyword"
+      class="form-control"
+      id="input"
+    />
+  </div>
+  <br />
+  <div class="row">
+    <div
+      class="col-sm-6"
+      *ngFor="let home of property | filter: searchedKeyword; let i; in: index"
+    >
+      <div class="card">
+        <img src="assets/randomhome.jpg" width="350px" alt="" />
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ home.propertytype }} at {{ home.address }}
+          </h5>
+          <p class="card-text">
+            Features: {{ home.features }} <br />
+            Rent: {{ home.rentpricepermonth | currency: "₹" }} <br />
+            Owner Name: {{ home.owner.name }} <br />
+
+            <label for="">Chekin Date</label>:&nbsp; &nbsp;&nbsp;
+            <input type="text" name="checkin" [(ngModel)]="checkin" id="" />
+            <br />
+            <br />
+            <label for="">Chekout Date</label>:&nbsp;
+            <input type="text" name="checkout" [(ngModel)]="checkout" id="" />
+          </p>
+          <a
+            (click)="reserve(home, checkin, checkout)"
+            (click)="addinbooking(home, checkin, checkout)"
+            (click)="addinmail(home, checkin, checkout)"
+            class="btn btn-primary"
+            >Reserve</a
+          >
+          <p *ngIf="home.isreserved == 1">This Property is reserved</p>
+          &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

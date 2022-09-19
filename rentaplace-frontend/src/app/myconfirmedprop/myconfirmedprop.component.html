@@ -1,0 +1,36 @@
+<div>
+  <h2 id="nodataheading" *ngIf="getbooking.length == 0">
+    You have not reserved any property yet
+  </h2>
+  <table class="table table-striped" *ngIf="getbooking.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">From Date</th>
+        <th scope="col">To Date</th>
+        <th scope="col">Home Address</th>
+        <th scope="col">Property Type</th>
+        <th scope="col">Rent</th>
+        <th scope="col">Owner name</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of getuserconfirmedbooking; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ booking.checkin }}</td>
+        <td>{{ booking.checkin }}</td>
+        <td>{{ booking.home.address }}</td>
+        <td>{{ booking.home.propertytype }}</td>
+        <td>{{ booking.home.rentpricepermonth }}</td>
+        <td>{{ booking.home.owner.name }}</td>
+        <td *ngIf="booking.isconfirmbyowner == 0" style="color: red">
+          Not Confirmed
+        </td>
+        <td *ngIf="booking.isconfirmbyowner == 1" style="color: green">
+          Confirmed
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

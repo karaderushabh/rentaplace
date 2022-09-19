@@ -1,0 +1,53 @@
+<form>
+  <div><h2>Add Your Property Details</h2></div>
+  <br /><br />
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="form2Example1"
+      class="form-control"
+      name="propertytype"
+      [(ngModel)]="propertytype"
+    />
+    <label class="form-label" for="form2Example1">Property Type</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="form2Example2"
+      class="form-control"
+      name="address"
+      [(ngModel)]="address"
+    />
+    <label class="form-label" for="form2Example2">City </label>
+  </div>
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="form2Example2"
+      class="form-control"
+      name="features"
+      [(ngModel)]="features"
+    />
+    <label class="form-label" for="form2Example2">Features </label>
+  </div>
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="form2Example2"
+      class="form-control"
+      name="rentpricepermonth"
+      [(ngModel)]="rentpricepermonth"
+    />
+    <label class="form-label" for="form2Example2">Rent for 1 month </label>
+  </div>
+
+  <button
+    type="button"
+    (click)="addProperty(propertytype, address, features, rentpricepermonth)"
+    class="btn btn-primary btn-block mb-4"
+  >
+    Add Property
+  </button>
+</form>

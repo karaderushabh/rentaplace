@@ -1,0 +1,163 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div>
+      &nbsp; &nbsp;
+
+      <a class="navbar-brand">Rent a Place</a>
+    </div>
+
+    <ul class="navbar-nav">
+      <li>
+        <a
+          *ngIf="
+            loginService.isUserLoggedIn() &&
+            !adminloginservice.isAdminLoggedIn()
+          "
+          routerLink="/propertylist"
+          class="nav-link"
+          >See Properties</a
+        >
+      </li>
+
+      <li>
+        <a
+          *ngIf="
+            loginService.isUserLoggedIn() &&
+            !adminloginservice.isAdminLoggedIn()
+          "
+          routerLink="/myconfirmedprop"
+          class="nav-link"
+          >My Selected Properties</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            loginService.isUserLoggedIn() &&
+            !adminloginservice.isAdminLoggedIn()
+          "
+          routerLink="/chatuser"
+          class="nav-link"
+          >User Chat</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            adminloginservice.isAdminLoggedIn() &&
+            !loginService.isUserLoggedIn()
+          "
+          routerLink="/admindashboard"
+          class="nav-link"
+          >Admin Dashboard</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            adminloginservice.isAdminLoggedIn() &&
+            !loginService.isUserLoggedIn()
+          "
+          routerLink="/addproperty"
+          class="nav-link"
+          >Add Property</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            adminloginservice.isAdminLoggedIn() &&
+            !loginService.isUserLoggedIn()
+          "
+          routerLink="/listmyproperties"
+          class="nav-link"
+          >List my Properties</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            adminloginservice.isAdminLoggedIn() &&
+            !loginService.isUserLoggedIn()
+          "
+          routerLink="/ownermails"
+          class="nav-link"
+          >Owner Mail Inbox</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            adminloginservice.isAdminLoggedIn() &&
+            !loginService.isUserLoggedIn()
+          "
+          routerLink="/chatowner"
+          class="nav-link"
+          >Owner Chat</a
+        >
+      </li>
+
+      <li>
+        <a
+          *ngIf="
+            !loginService.isUserLoggedIn() &&
+            !adminloginservice.isAdminLoggedIn()
+          "
+          routerLink="login"
+          class="nav-link"
+          >User Login</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="loginService.isUserLoggedIn()"
+          routerLink="/logout"
+          class="nav-link"
+          >User Logout</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="adminloginservice.isAdminLoggedIn()"
+          routerLink="/ownerlogout"
+          class="nav-link"
+          >Owner Logout</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            !loginService.isUserLoggedIn() &&
+            !adminloginservice.isAdminLoggedIn()
+          "
+          routerLink="/userregistration"
+          class="nav-link"
+          >User Registration</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            !adminloginservice.isAdminLoggedIn() &&
+            !loginService.isUserLoggedIn()
+          "
+          routerLink="ownerlogin"
+          class="nav-link"
+          >Owner Login</a
+        >
+      </li>
+      <li>
+        <a
+          *ngIf="
+            !loginService.isUserLoggedIn() &&
+            !adminloginservice.isAdminLoggedIn()
+          "
+          routerLink="/ownerregistration"
+          class="nav-link"
+          >Owner Registration</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</header>

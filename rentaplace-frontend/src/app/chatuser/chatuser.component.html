@@ -1,0 +1,86 @@
+<section style="background-color: #eee">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-4">
+        &nbsp;
+
+        <div class="card" id="chat1" style="border-radius: 15px">
+          <div
+            class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0"
+            style="border-top-left-radius: 15px; border-top-right-radius: 15px"
+          >
+            <i class="fas fa-angle-left"></i>
+            <p class="mb-0 fw-bold">Chat with Owner</p>
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="card-body" id="scroll">
+            <div *ngFor="let c of uchat">
+              <div
+                *ngIf="c.sendername == sendername"
+                class="d-flex flex-row justify-content-end"
+              >
+                <p
+                  class="small p-2 ms-3 mb-1 rounded-3"
+                  style="background-color: #8d8d8dc0"
+                >
+                  {{ c.message }}
+                </p>
+              </div>
+              <div
+                *ngIf="c.recievername == sendername"
+                class="d-flex flex-row justify-content-start"
+              >
+                <p
+                  class="small p-2 ms-3 mb-1 rounded-3"
+                  style="background-color: #8d8d8dc0"
+                >
+                  {{ c.message }}
+                </p>
+              </div>
+              <p
+                *ngIf="c.recievername == sendername"
+                class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-start"
+                style="font-size: 11px"
+              >
+                {{ c.createdDate | date: "h:mm a " }}
+                <br />
+                From: {{ c.sendername }} To: {{ c.recievername }}
+              </p>
+              <p
+                *ngIf="c.sendername == sendername"
+                class="small me-3 mb-3 rounded-3 text-muted d-flex justify-content-end"
+                style="font-size: 11px"
+              >
+                {{ c.createdDate | date: "h:mm a " }}
+                <br />
+                From: {{ c.sendername }} To: {{ c.recievername }}
+              </p>
+            </div>
+
+            <div class="form-outline">
+              <textarea
+                class="form-control"
+                id="textAreaExample"
+                rows="4"
+                [(ngModel)]="usermsg"
+              ></textarea>
+              <label class="form-label" for="textAreaExample"
+                >Type your message</label
+              >
+              <br />
+              <input type="text" [(ngModel)]="rname" placeholder="Send to" />
+              <br />
+              <br />
+              <button
+                class="btn btn-primary"
+                (click)="usersend(usermsg, rname)"
+              >
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
